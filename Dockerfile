@@ -8,12 +8,13 @@ RUN apt update -y && apt install -y git && git clone --depth 1 --branch $TAG_VER
 WORKDIR /app/client
 
 ENV PYTHONUNBUFFERED=1
-RUN apt install -y python2.7 python-pip g++ make &&  \
-    npm ci &&  \
-    npm rebuild node-sass &&  \
-    npm run build && \
-    npm prune --production && \
-    rm -rf tests
+RUN apt install -y python3 g++ make
+RUN ln -sf python3 /usr/bin/python
+RUN npm ci
+RUN npm rebuild node-sass
+RUN npm run build
+RUN npm prune --production
+RUN rm -rf tests
 
 FROM python:3.8-alpine3.15
 
