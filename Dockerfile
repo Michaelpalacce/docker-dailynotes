@@ -7,11 +7,13 @@ RUN apt update -y && apt install -y git && git clone --depth 1 --branch $TAG_VER
 
 WORKDIR /app/client
 
+# Multi layers do not matter here
 ENV PYTHONUNBUFFERED=1
 RUN apt install -y python2.7 python-pip g++ make
 RUN npm ci
 RUN npm rebuild node-sass
 RUN npm run build
+RUN npm prune --production
 
 FROM python:3.8-alpine3.15
 
