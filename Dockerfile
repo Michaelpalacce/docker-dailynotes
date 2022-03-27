@@ -1,9 +1,8 @@
 FROM node:12-slim as node-builder
-#ARG TAG_VERSION
+ARG TAG_VERSION
 
 WORKDIR /app
 
-# RUN apt update -y && apt install -y git && git clone --depth 1 --branch $TAG_VERSION https://github.com/m0ngr31/DailyNotes.git .
 RUN apt update -y && apt install -y git && git clone --depth 1 --branch $TAG_VERSION https://github.com/m0ngr31/DailyNotes.git .
 
 WORKDIR /app/client
