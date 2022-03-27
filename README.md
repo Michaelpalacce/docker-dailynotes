@@ -1,2 +1,2 @@
 # docker-dailynotes
-Multiarch dailynotes image
+Automated docker arm build of https://github.com/m0ngr31/DailyNotes
