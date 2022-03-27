@@ -8,7 +8,7 @@ RUN apt update -y && apt install -y git && git clone --depth 1 --branch $TAG_VER
 WORKDIR /app/client
 
 ENV PYTHONUNBUFFERED=1
-RUN apt install -y python3 g++ make
+RUN apt install -y python2.7 python-pip g++ make
 # RUN ln -sf python3 /usr/bin/python
 RUN npm ci
 RUN npm rebuild node-sass
