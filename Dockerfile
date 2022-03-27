@@ -9,7 +9,7 @@ WORKDIR /app/client
 
 ENV PYTHONUNBUFFERED=1
 RUN apt install -y python3 g++ make
-RUN ln -sf python3 /usr/bin/python
+# RUN ln -sf python3 /usr/bin/python
 RUN npm ci
 RUN npm rebuild node-sass
 RUN npm run build
